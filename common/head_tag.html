@@ -9,7 +9,7 @@
 
     api.registerConnectorClass('user-card-metadata', 'custom-profile-link', {
       setupComponent(args, component) {
-        console.log("[DBEUG] CARD - CPL is", args.model.get('customProfileLink'))
+        console.log("[DBEUG] CARD - CPL is", args.user.get('customProfileLink'))
         component.set('customProfileLink', args.user.get('customProfileLink'));
       }
     });
