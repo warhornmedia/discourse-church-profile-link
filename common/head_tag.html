@@ -1,4 +1,5 @@
 <script type="text/discourse-plugin" version="0.8.7">
+    const Site = require("discourse/models/site").default;
     api.registerConnectorClass('user-profile-primary', 'custom-profile-link', {
       setupComponent(args, component) {
         component.set('customProfileLink', args.model.get('customProfileLink'));
@@ -12,10 +13,11 @@
     });
 
     api.modifyClass('model:user', {
-      customProfileLink: function() {
+      pluginId: 'customProfileLink',
+      customProfileLink: Ember.computed('user_fields.@each.value', function() {
           const fieldName = settings.custom_profile_link_user_field;
           
-          const siteUserFields = Discourse.Site.currentProp('user_fields');
+          const siteUserFields = Site.currentProp('user_fields');
           if (Ember.isEmpty(siteUserFields)) return null;
           
           const field = siteUserFields.filterBy('name', fieldName)[0]
@@ -26,8 +28,10 @@
           if (!userFields || !userFields[fieldId]) return null;
           
           return userFields[fieldId];
-      }.property('user_fields.@each.value')
+      })
     });
+    
+    const userModel = api.container.lookup("model:user");
 </script>
 
 <script type='text/x-handlebars' data-template-name='/connectors/user-profile-primary/custom-profile-link'>
@@ -35,7 +39,7 @@
     <div class="public-user-fields">
       <div class="public-user-field">
         <span class="user-field-value">
-          <a href="{{theme-setting 'custom_profile_link_prefix'}}{{{customProfileLink}}}">{{theme-setting 'custom_profile_link_label'}}</a>
+          <a href="{{theme-setting 'custom_profile_link_prefix'}}{{{customProfileLink}}}" target="_blank">{{theme-setting 'custom_profile_link_label'}}</a>
         </span>
       </div>
     </div>
