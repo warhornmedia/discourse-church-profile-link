@@ -23,8 +23,10 @@ export default {
         
         return userFields[fieldId];
       })
-    }
+    })
+                    
   },
+  
   initialize() {
     withPluginApi("0.12.1", this.initializeWithApi);
   },
