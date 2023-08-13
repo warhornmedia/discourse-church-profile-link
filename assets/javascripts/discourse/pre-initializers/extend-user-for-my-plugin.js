@@ -7,6 +7,7 @@ export default {
   before: "inject-discourse-objects",
   
   initialize() {
+    console.log("[DEBUG] Init CPL");
     withPluginApi("0.12.1", this.initializeWithApi);
   },
   
@@ -14,6 +15,7 @@ export default {
     api.modifyClass('model:user', {
       pluginId: 'customProfileLink',
       customProfileLink: Ember.computed('user_fields.@each.value', function() {
+        console.log("[DEBUG] Modifiying");
         const fieldName = settings.custom_profile_link_user_field;
         const siteUserFields = Site.currentProp('user_fields');
         
@@ -25,6 +27,7 @@ export default {
         const userFields = this.get('user_fields');
         if (!userFields || !userFields[fieldId]) {return null;}
         
+        console.log("[DEBUG] Finished");
         return userFields[fieldId];
         })
       });
