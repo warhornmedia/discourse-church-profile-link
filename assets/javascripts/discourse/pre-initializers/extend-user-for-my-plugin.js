@@ -15,12 +15,12 @@ export default {
           console.log("[DEBUG] Modifiying");
           const fieldName = settings.custom_profile_link_user_field;
           const siteUserFields = Site.currentProp("user_fields");
-          if (Ember.isEmpty(siteUserFields)) {return null;}
+          if (Ember.isEmpty(siteUserFields)) {return "Fields empty";}
           const field = siteUserFields.filterBy("name", fieldName)[0];
           if (!field) {return null;}
           const fieldId = field.get("id");
           const userFields = this.get("user_fields");
-          if (!userFields || !userFields[fieldId]) {return null;}
+          if (!userFields || !userFields[fieldId]) {return "User fields or field missing";}
           console.log("[DEBUG] Finished");
           return userFields[fieldId];
           })
