@@ -1,5 +1,5 @@
 // assets/javascripts/discourse/pre-initializers/extend-user-for-my-plugin.js
-import Site from "discourse/models/site";
+import  { Site } from "discourse/models/site";
 import { withPluginApi } from "discourse/lib/plugin-api";
 
 export default {
