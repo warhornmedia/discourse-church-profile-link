@@ -2,14 +2,16 @@
     const Site = require("discourse/models/site").default;
     api.registerConnectorClass('user-profile-primary', 'custom-profile-link', {
       setupComponent(args, component) {
-        console.log("[DBEUG] PROFILE - CPL is", args.model.get('customProfileLink'))
+        console.log("[DBEUG] PROFILE - CPL is", args.model.get('customProfileLink'));
+        console.log(args.model);
         component.set('customProfileLink', args.model.get('customProfileLink'));
       }
     });
 
     api.registerConnectorClass('user-card-metadata', 'custom-profile-link', {
       setupComponent(args, component) {
-        console.log("[DBEUG] CARD - CPL is", args.user.get('customProfileLink'))
+        console.log("[DBEUG] CARD - CPL is", args.user.get('customProfileLink'));
+        console.log(args.user);
         component.set('customProfileLink', args.user.get('customProfileLink'));
       }
     });
