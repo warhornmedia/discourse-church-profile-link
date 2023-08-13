@@ -7,11 +7,23 @@ export default {
   before: "inject-discourse-objects",
 
   initializeWithApi(api){
-    api.modifyClass("model:user", {
-      myNewUserFunction() {
-        return "hello world";
-      }
-    });
+    api.modifyClass('model:user', {
+      pluginId: 'customProfileLink',
+      customProfileLink: Ember.computed('user_fields.@each.value', function() {
+          const fieldName = settings.custom_profile_link_user_field;
+          
+          const siteUserFields = Site.currentProp('user_fields');
+          if (Ember.isEmpty(siteUserFields)) return null;
+          
+          const field = siteUserFields.filterBy('name', fieldName)[0]
+          if (!field) return null;
+          
+          const fieldId = field.get('id');
+          const userFields = this.get('user_fields');
+          if (!userFields || !userFields[fieldId]) return null;
+          
+          return userFields[fieldId];
+      })
   },
 
   initialize() {
