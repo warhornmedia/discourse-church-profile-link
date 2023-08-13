@@ -8,7 +8,7 @@ export default {
   
   initialize() {
     console.log("[DEBUG] Init CPL");
-    withPluginApi("0.12.1", (api) => {
+    withPluginApi("0.8.7", (api) => {
       api.modifyClass('model:user', {
         pluginId: 'customProfileLink',
         customProfileLink: Ember.computed('user_fields.@each.value', function() {
