@@ -2,6 +2,7 @@
     const Site = require("discourse/models/site").default;
     api.registerConnectorClass('user-profile-primary', 'custom-profile-link', {
       setupComponent(args, component) {
+        console.log("[DBEUG] CPL is", args.model.get('customProfileLink'))
         component.set('customProfileLink', args.model.get('customProfileLink'));
       }
     });
