@@ -26,7 +26,7 @@ export default {
         if (!userFields || !userFields[fieldId]) {return null;}
         
         return userFields[fieldId];
-      })
-    });
-  }
-  }
+        })
+      });
+    }
+}
