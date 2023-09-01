@@ -11,7 +11,7 @@ export default {
     withPluginApi("0.8.7", function(api) {
       api.modifyClass("model:user", {
         pluginId: "customProfileLink",
-        customProfileLink: Ember.computed("user_fields.@each.value", function() {
+        customProfileLink: Ember.computed("user_fields.@each", function() {
           console.log("[DEBUG] Modifiying");
           const fieldName = settings.custom_profile_link_user_field_id;
           const siteUserFields = Site.currentProp("user_fields");
