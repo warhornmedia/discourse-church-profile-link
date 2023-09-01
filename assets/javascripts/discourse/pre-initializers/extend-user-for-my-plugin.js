@@ -13,7 +13,7 @@ export default {
         pluginId: "customProfileLink",
         customProfileLink: Ember.computed("user_fields.@each.value", function() {
           console.log("[DEBUG] Modifiying");
-          const fieldName = settings.custom_profile_link_user_field;
+          const fieldName = settings.custom_profile_link_user_field_id;
           const siteUserFields = Site.currentProp("user_fields");
           if (Ember.isEmpty(siteUserFields)) {return "Fields empty";}
           const field = siteUserFields.filterBy("name", fieldName)[0];
