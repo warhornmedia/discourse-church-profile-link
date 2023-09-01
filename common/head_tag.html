@@ -2,19 +2,17 @@
     const Site = require("discourse/models/site").default;
     api.registerConnectorClass('user-profile-primary', 'custom-profile-link', {
       setupComponent(args, component) {
-        console.log("[DBEUG] PROFILE - CPL is", args.model.get('customProfileLink'));
         console.log("[DEBUG] CPL - fallback:", args.model.get('user_fields')[settings.custom_profile_link_user_field_id]);
         console.log(args.model);
-        component.set('customProfileLink', args.model.get('customProfileLink'));
+        component.set('customProfileLink', args.model.get('user_fields')[settings.custom_profile_link_user_field_id]);
       }
     });
 
     api.registerConnectorClass('user-card-metadata', 'custom-profile-link', {
       setupComponent(args, component) {
-        console.log("[DBEUG] CARD - CPL is", args.user.get('customProfileLink'));
         console.log("[DEBUG] CPL - fallback:", args.user.get('user_fields')[settings.custom_profile_link_user_field_id]);
         console.log(args.user);
-        component.set('customProfileLink', args.user.get('customProfileLink'));
+        component.set('customProfileLink', args.user.get('user_fields')[settings.custom_profile_link_user_field_id]);
       }
     });
     
