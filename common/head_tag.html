@@ -1,23 +1,15 @@
 <script type="text/discourse-plugin" version="0.8.7">
-    const Site = require("discourse/models/site").default;
     api.registerConnectorClass('user-profile-primary', 'custom-profile-link', {
       setupComponent(args, component) {
-        console.log("[DEBUG] CPL - fallback:", args.model.get('user_fields')[settings.custom_profile_link_user_field_id]);
-        console.log(args.model);
         component.set('customProfileLink', args.model.get('user_fields')[settings.custom_profile_link_user_field_id]);
       }
     });
 
     api.registerConnectorClass('user-card-metadata', 'custom-profile-link', {
       setupComponent(args, component) {
-        console.log("[DEBUG] CPL - fallback:", args.user.get('user_fields')[settings.custom_profile_link_user_field_id]);
-        console.log(args.user);
         component.set('customProfileLink', args.user.get('user_fields')[settings.custom_profile_link_user_field_id]);
       }
     });
-    
-    const userModel = api.container.lookup("model:user");
-    console.log("[DEBUG] CPL common script finished")
 </script>
 
 <script type='text/x-handlebars' data-template-name='/connectors/user-profile-primary/custom-profile-link'>
