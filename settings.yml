@@ -3,6 +3,11 @@ custom_profile_link_user_field:
   default: External user ID
   description: The name of your custom user field, e.g. External user ID
 
+custom_profile_link_user_field_id:
+  type: int
+  default: 1
+  description: The id of your custom user field, e.g. 1, 2, etc.
+
 custom_profile_link_label:
   type: string
   default: External profile
