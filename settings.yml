@@ -4,7 +4,7 @@ custom_profile_link_user_field:
   description: The name of your custom user field, e.g. External user ID
 
 custom_profile_link_user_field_id:
-  type: int
+  type: integer
   default: 1
   description: The id of your custom user field, e.g. 1, 2, etc.
 
