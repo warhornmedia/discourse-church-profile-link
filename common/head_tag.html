@@ -1,13 +1,21 @@
 <script type="text/discourse-plugin" version="0.8.7">
     api.registerConnectorClass('user-profile-primary', 'custom-profile-link', {
       setupComponent(args, component) {
-        component.set('customProfileLink', args.model.get('user_fields')[settings.custom_profile_link_user_field_id]);
+        if (!args.model.get('user_fields')) {
+          component.set('customProfileLink', undefined);
+        } else {
+          component.set('customProfileLink', args.model.get('user_fields')[settings.custom_profile_link_user_field_id]);
+        }
       }
     });
 
     api.registerConnectorClass('user-card-metadata', 'custom-profile-link', {
       setupComponent(args, component) {
-        component.set('customProfileLink', args.user.get('user_fields')[settings.custom_profile_link_user_field_id]);
+        if (!args.user.get('user_fields')) {
+          component.set('customProfileLink', undefined);
+        } else {
+          component.set('customProfileLink', args.user.get('user_fields')[settings.custom_profile_link_user_field_id]);
+        }
       }
     });
 </script>
