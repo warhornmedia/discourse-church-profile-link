@@ -2,6 +2,7 @@
     api.registerConnectorClass('user-profile-primary', 'custom-profile-link', {
       setupComponent(args, component) {
         if (!args.model.get('user_fields')) {
+          console.warn(`[Custom Profile Link] User Card () missing "user_fields"! Raw user dump follows.`,args.model);
           component.set('customProfileLink', undefined);
         } else {
           component.set('customProfileLink', args.model.get('user_fields')[settings.custom_profile_link_user_field_id]);
@@ -12,6 +13,7 @@
     api.registerConnectorClass('user-card-metadata', 'custom-profile-link', {
       setupComponent(args, component) {
         if (!args.user.get('user_fields')) {
+          console.warn(`[Custom Profile Link] User Profile () missing "user_fields"! Raw user dump follows.`,args.user);
           component.set('customProfileLink', undefined);
         } else {
           component.set('customProfileLink', args.user.get('user_fields')[settings.custom_profile_link_user_field_id]);
