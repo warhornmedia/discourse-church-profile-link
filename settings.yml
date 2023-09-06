@@ -13,7 +13,7 @@ custom_profile_link_prefix:
   default: https://yoursite.com/users/
   description: Optional text to prepend before the user field value, e.g. https://yoursite.com/users/
 
-debug_mode:
+custom_profile_link_debug_mode:
   type: bool
   default: false
   description: Enables logging debug information, e.g. "Script Loaded", User fields, etc
