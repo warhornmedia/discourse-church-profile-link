@@ -1,6 +1,6 @@
 custom_profile_link_user_field_ids:
   type: list
-  default: 1, 2
+  default: 1,2
   description: The id(s) of your custom user field(s), e.g. 1, 2, etc.
 
 custom_profile_link_labels:
