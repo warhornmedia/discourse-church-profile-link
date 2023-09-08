@@ -1,4 +1,5 @@
 <script type="text/discourse-plugin" version="0.8.7">
+    if (settings.custom_profile_link_debug_mode) console.debug("[Custom Profile Link] Settings dump follows",settings);
     api.registerConnectorClass('user-profile-primary', 'custom-profile-link', {
       setupComponent(args, component) {
         if (!args.model.get('user_fields')) {
