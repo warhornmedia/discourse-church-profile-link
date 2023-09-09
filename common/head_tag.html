@@ -46,9 +46,9 @@
     <div class="public-user-fields">
       <div class="public-user-field">
         <span class="user-field-value">
-          {{#each customProfileLink}}
-              <a href="{{this.content.[2]}}{{this.content.[0]}}" target="_blank">{{this.content.[1]}}</a>
-              <p>{{this.content}}</p>
+          {{#each customProfileLink as |link|}}
+              <a href="{{link.[2]}}{{link.[0]}}" target="_blank">{{link.[1]}}</a>
+              <p>{{link}}--{{link.content}}</p>
           {{/each}}
         </span>
       </div>
@@ -60,9 +60,9 @@
   {{#if customProfileLink}}
     <h3 class="user-card-public-field">
       <span class="user-field-value">
-          {{#each customProfileLink}}
-              <a href="{{this.content.[2]}}{{this.content.[0]}}" target="_blank">{{this.content.[1]}}</a>
-              <p>{{this.content}}</p>
+          {{#each customProfileLink as |links|}}
+              <a href="{{link.[2]}}{{link.[0]}}" target="_blank">{{link.[1]}}</a>
+              <p>{{link}}--{{link.content}}</p>
           {{/each}}
       </span>
     </h3>
