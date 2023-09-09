@@ -16,6 +16,7 @@
               if (!args.model.get('user_fields')[ids[i]] && settings.custom_profile_link_debug_mode) console.debug(`[Custom Profile Link] User field ${ids[i]} missing. user_fields dump follows.`,args.model.get("user_fields"));
               if (!args.model.get('user_fields')[ids[i]]) links.push([args.model.get('user_fields')[ids[i]], labels[i], prefixes[i]]);
           }
+          if (settings.custom_profile_link_debug_mode) console.debug("[Custom Profile Link] links built, dump:",links)
           component.set('customProfileLink', links);
         }
       }
@@ -32,6 +33,7 @@
               if (!args.user.get('user_fields')[ids[i]] && settings.custom_profile_link_debug_mode) console.debug(`[Custom Profile Link] User field ${ids[i]} missing. user_fields dump follows.`,args.user.get("user_fields"));
               if (!args.user.get('user_fields')[ids[i]]) links.push([args.user.get('user_fields')[ids[i]], labels[i], prefixes[i]]);
           }
+          if (settings.custom_profile_link_debug_mode) console.debug("[Custom Profile Link] links built, dump:",links)
           component.set('customProfileLink', links);
         }
       }
@@ -45,7 +47,7 @@
       <div class="public-user-field">
         <span class="user-field-value">
           {{#each items}}
-              <a href="{{this.[2]}}{{{this.[0]}}}" target="_blank">{{this.[1]}}</a>
+              <a href="{{this.2}}{{this.0}}" target="_blank">{{this.1}}</a>
           {{/each}}
         </span>
       </div>
@@ -58,7 +60,7 @@
     <h3 class="user-card-public-field">
       <span class="user-field-value">
           {{#each items}}
-              <a href="{{this.[2]}}{{{this.[0]}}}" target="_blank">{{this.[1]}}</a>
+              <a href="{{this.2}}{{{this.0}}}" target="_blank">{{this.1}}</a>
           {{/each}}
       </span>
     </h3>
