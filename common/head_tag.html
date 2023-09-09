@@ -46,7 +46,7 @@
     <div class="public-user-fields">
       <div class="public-user-field">
         <span class="user-field-value">
-          {{#each items}}
+          {{#each customProfileLink}}
               <a href="{{this.prefix}}{{this.name}}" target="_blank">{{this.label}}</a>
           {{/each}}
         </span>
@@ -59,7 +59,7 @@
   {{#if customProfileLink}}
     <h3 class="user-card-public-field">
       <span class="user-field-value">
-          {{#each items}}
+          {{#each customProfileLink}}
               <a href="{{this.prefix}}{{this.name}}" target="_blank">{{this.label}}</a>
           {{/each}}
       </span>
