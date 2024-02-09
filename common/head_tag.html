@@ -60,7 +60,7 @@
     <h3 class="user-card-public-field">
       <span class="user-field-value">
           {{#each customProfileLink as |link|}}
-              <a href="{{link.[2]}}{{link.[0]}}" target="_blank">{{link.[1]}}</a>
+              <span class="user-field-name"><svg class="fa d-icon d-icon-church svg-icon svg-node" aria-hidden="true"><use xlink:href="#church"></use></svg></span><a href="{{link.[2]}}{{link.[0]}}" target="_blank">{{link.[1]}}</a>
           {{/each}}
       </span>
     </h3>
